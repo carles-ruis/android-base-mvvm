@@ -1,0 +1,43 @@
+ext {
+    supportVersion = '28.0.0-rc01'
+    constraintLayoutVersion = '1.1.2'
+    rxJavaVersion = "2.1.1"
+    rxAndroidVersion = "2.0.2"
+    retrofitVersion = '2.3.0'
+    jUnitVersion = '4.12'
+    testRunnerVersion = '1.0.1'
+    espressoVersion = '3.0.1'
+    mockkVersion = '1.8.13.kotlin13'
+    koinVersion = '1.0.2'
+    lifecycleVersion = '1.1.1'
+    roomVersion = '1.1.1'
+
+    appDependencies = [
+            kotlin               : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            support              : "com.android.support:appcompat-v7:$supportVersion",
+            design               : "com.android.support:design:$supportVersion",
+            recyclerview         : "com.android.support:recyclerview-v7:$supportVersion",
+            constraintLayout     : "com.android.support.constraint:constraint-layout:$constraintLayoutVersion",
+
+            rxJava               : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxAndroid            : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            retrofit             : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitConverterGson: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            retrofitAdapterRxJava: "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            koin                 : "org.koin:koin-android:$koinVersion",
+            koinScope            : "org.koin:koin-android-scope:$koinVersion",
+            koinViewModel        : "org.koin:koin-android-viewmodel:$koinVersion",
+            roomRuntime          : "android.arch.persistence.room:runtime:$roomVersion",
+            roomCompiler         : "android.arch.persistence.room:compiler:$roomVersion",
+            roomRxJava           : "android.arch.persistence.room:rxjava2:$roomVersion",
+            lifecycleExtensions  : "android.arch.lifecycle:extensions:$lifecycleVersion",
+            lifecycleCompiler    : "android.arch.lifecycle:compiler:$lifecycleVersion",
+
+            jUnit                : "junit:junit:$jUnitVersion",
+            testRunner           : "com.android.support.test:runner:$testRunnerVersion",
+            espresso             : "com.android.support.test.espresso:espresso-core:$espressoVersion",
+            espressoContrib      : "com.android.support.test.espresso:espresso-contrib:$espressoVersion",
+            mockk                : "io.mockk:mockk:$mockkVersion",
+    ]
+}
+

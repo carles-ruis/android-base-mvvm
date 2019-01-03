@@ -1,0 +1,1 @@
+https://github.com/Ekito/koin-samples/blob/master/samples/android-weatherapp-mvvm

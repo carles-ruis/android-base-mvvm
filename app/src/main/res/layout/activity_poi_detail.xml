@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/view_toolbar" />
+
+        <ScrollView
+            android:id="@+id/poidetail_contentview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/poidetail_address_textview"
+                    style="@style/PoiDetailTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Sancho de Avila 165" />
+
+                <TextView
+                    android:id="@+id/poidetail_transport_textview"
+                    style="@style/PoiDetailTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="-M- Poblenou, BUS: H12" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_light" />
+
+                <TextView
+                    android:id="@+id/poidetail_description_textview"
+                    style="@style/PoiDetailTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/Roboto.Subtitle2"
+                    tools:text="Bla bla bla bla blaaaaaa bla bla bla blaaaaaaaaaa bla bla bla bla bla" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_light" />
+
+                <TextView
+                    android:id="@+id/poidetail_phone_textview"
+                    style="@style/PoiDetailTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="+34 646 646 646" />
+
+                <TextView
+                    android:id="@+id/poidetail_mail_textview"
+                    style="@style/PoiDetailTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="carles.ruis@gmail.com" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <include layout="@layout/layout_progressbar" />
+</RelativeLayout>
