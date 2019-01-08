@@ -6,11 +6,11 @@ import android.arch.persistence.room.PrimaryKey
 @Entity
 data class Poi(
     @PrimaryKey var id: String,
-    var title: String?,
-    var address: String?,
-    var transport: String?,
-    var description: String?,
-    var email: String?,
-    var phone: String?,
-    var geocoordinates: String?
+    var title: String? = null,
+    var address: String? = null,
+    var transport: String? = null,
+    var description: String? = null,
+    var email: String? = null,
+    var phone: String? = null,
+    var geocoordinates: String? = null
 )

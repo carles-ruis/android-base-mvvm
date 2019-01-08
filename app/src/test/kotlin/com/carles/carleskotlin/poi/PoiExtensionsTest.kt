@@ -4,7 +4,6 @@ import com.carles.carleskotlin.createEmptyPoiListResponseDto
 import com.carles.carleskotlin.createPoi
 import com.carles.carleskotlin.createPoiListResponseDto
 import com.carles.carleskotlin.createPoiResponseDto
-import com.carles.carleskotlin.poi.datasource.entity.PoiRealmObject
 import com.carles.carleskotlin.poi.model.Poi
 import org.junit.Assert.*
 import org.junit.Test
@@ -34,15 +33,4 @@ class PoiExtensionsTest {
         dto.phone = "undefined"; assertNull(dto.toModel().phone)
     }
 
-    @Test
-    fun poi_toRealmObject() {
-        val poi = createPoi(System.currentTimeMillis().toString())
-        assertEquals(poi.id, poi.toRealmObject().id)
-    }
-
-    @Test
-    fun poiRealmObject_toModel() {
-        val poiRealmObject = PoiRealmObject(id = System.currentTimeMillis().toString())
-        assertEquals(poiRealmObject.id, poiRealmObject.toModel().id)
-    }
 }

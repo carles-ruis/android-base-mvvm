@@ -13,8 +13,10 @@ class PoiLocalDatasource(private val dao: PoiDao, sharedPreferences: SharedPrefe
     fun getPoiDetail(id: String): Maybe<Poi> = Maybe.defer {
         if (isExpired(Poi::class.toString(), id)) {
             dao.deletePoi(id)
+            Maybe.empty<Poi>()
+        } else {
+            dao.loadPoiById(id)
         }
-        dao.loadPoiById(id)
     }
 
     fun persist(poi: Poi) {
