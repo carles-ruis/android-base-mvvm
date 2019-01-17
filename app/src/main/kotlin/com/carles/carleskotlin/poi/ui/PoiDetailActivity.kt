@@ -40,10 +40,6 @@ class PoiDetailActivity : BaseActivity<PoiDetailPresenter>(), PoiDetailView {
 
     companion object {
         private val EXTRA_ID = "poi_detail_extra_id"
-        fun newIntent(context: Context, id: String): Intent {
-            val intent = Intent(context, PoiDetailActivity::class.java)
-            intent.putExtra(EXTRA_ID, id)
-            return intent
-        }
+        fun newIntent(context: Context, id: String) = Intent(context, PoiDetailActivity::class.java).apply { putExtra(EXTRA_ID, id) }
     }
 }

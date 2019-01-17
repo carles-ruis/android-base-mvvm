@@ -1,6 +1,7 @@
 package com.carles.carleskotlin.poi.datasource
 
 import android.content.SharedPreferences
+import com.carles.carleskotlin.common.cacheId
 import com.carles.carleskotlin.common.data.datasource.BaseLocalDatasource
 import com.carles.carleskotlin.common.setCacheExpirationTime
 import com.carles.carleskotlin.poi.model.Poi
@@ -21,6 +22,6 @@ class PoiLocalDatasource(private val dao: PoiDao, sharedPreferences: SharedPrefe
 
     fun persist(poi: Poi) {
         dao.insertPoi(poi)
-        sharedPreferences.setCacheExpirationTime(Poi::class.toString(), poi.id, calculateCacheExpirationTime())
+        sharedPreferences.setCacheExpirationTime(poi.cacheId, poi.id, calculateCacheExpirationTime())
     }
 }

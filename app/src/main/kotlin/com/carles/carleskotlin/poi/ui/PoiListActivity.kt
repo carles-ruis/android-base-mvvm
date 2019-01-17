@@ -10,15 +10,15 @@ import kotlinx.android.synthetic.main.view_toolbar.toolbar
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-class PoiListActivity : BaseActivity<PoiListPresenter>(), PoiListView, PoiListAdapter.Listener {
+class PoiListActivity : BaseActivity<PoiListPresenter>(), PoiListView {
 
     override val layoutResourceId = R.layout.activity_poi_list
-    private val adapter = PoiListAdapter()
     override val presenter : PoiListPresenter by inject { parametersOf(this) }
+    private lateinit var adapter : PoiListAdapter
 
     override fun initViews() {
         toolbar.setTitle(R.string.poilist_title)
-        adapter.listener = this
+        adapter = PoiListAdapter { presenter.onPoiClicked(it) }
         poilist_recyclerview.addItemDecoration(DividerItemDecoration(this, VERTICAL))
         poilist_recyclerview.adapter = adapter
     }
@@ -27,12 +27,6 @@ class PoiListActivity : BaseActivity<PoiListPresenter>(), PoiListView, PoiListAd
         adapter.setItems(poiList)
     }
 
-    override fun navigateToPoiDetail(id: String) {
-        startActivity(PoiDetailActivity.newIntent(this, id))
-    }
-
-    override fun onPoiClicked(poi: Poi) {
-        presenter.onPoiClicked(poi)
-    }
+    override fun navigateToPoiDetail(id: String) = startActivity(PoiDetailActivity.newIntent(this, id))
 
 }

@@ -61,7 +61,7 @@ class PoiLocalDatasourceTest {
 
         verify {
             dao.insertPoi(poi)
-            sharedPreferences.setCacheExpirationTime(Poi::class.toString(), "some_id", any())
+            sharedPreferences.setCacheExpirationTime(any(), "some_id", any())
         }
     }
 }
