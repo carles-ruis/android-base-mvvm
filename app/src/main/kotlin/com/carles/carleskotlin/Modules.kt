@@ -24,7 +24,9 @@ val appModule = module {
     single { PreferenceManager.getDefaultSharedPreferences(androidContext()) }
     single("uiScheduler") { AndroidSchedulers.mainThread() }
     single("processScheduler") { Schedulers.io() }
-    single { Room.databaseBuilder(androidContext(), KotlinDatabase::class.java, "kotlin_database").build() }
+    single {
+        Room.databaseBuilder(androidContext(), KotlinDatabase::class.java, "kotlin_database").fallbackToDestructiveMigration().build()
+    }
 
     single {
         Retrofit.Builder()
