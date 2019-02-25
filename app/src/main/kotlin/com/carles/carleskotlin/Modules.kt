@@ -6,13 +6,11 @@ import com.carles.carleskotlin.poi.datasource.PoiCloudDatasource
 import com.carles.carleskotlin.poi.datasource.PoiLocalDatasource
 import com.carles.carleskotlin.poi.datasource.PoiService
 import com.carles.carleskotlin.poi.repository.PoiRepository
-import com.carles.carleskotlin.poi.ui.PoiDetailPresenter
-import com.carles.carleskotlin.poi.ui.PoiDetailView
-import com.carles.carleskotlin.poi.ui.PoiListPresenter
-import com.carles.carleskotlin.poi.ui.PoiListView
+import com.carles.carleskotlin.poi.ui.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import org.koin.android.ext.koin.androidContext
+import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -43,6 +41,8 @@ val poiModule = module {
     single { (get() as Retrofit).create(PoiService::class.java) }
     single { PoiCloudDatasource(get(), get()) }
     single { PoiRepository(get(), get()) }
+    viewModel { PoiListViewModel(get()) }
+    viewModel { (id: String) -> PoiDetailViewModel(id,get()) }
     factory { (view: PoiListView) -> PoiListPresenter(view, get("uiScheduler"), get("processScheduler"), get()) }
     factory { (view: PoiDetailView, id: String) -> PoiDetailPresenter(view, id, get("uiScheduler"), get("processScheduler"), get()) }
 }

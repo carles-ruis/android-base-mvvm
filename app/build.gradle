@@ -53,6 +53,7 @@ dependencies {
     implementation appDependencies.retrofitConverterGson
     implementation appDependencies.retrofitAdapterRxJava
     implementation appDependencies.koin
+    implementation appDependencies.koinViewModel
     implementation appDependencies.roomRuntime
     implementation appDependencies.roomRxJava
     implementation appDependencies.lifecycleExtensions

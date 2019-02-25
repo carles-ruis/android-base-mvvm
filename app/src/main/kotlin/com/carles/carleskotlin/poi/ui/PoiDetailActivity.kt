@@ -10,11 +10,13 @@ import com.carles.carleskotlin.poi.model.Poi
 import kotlinx.android.synthetic.main.activity_poi_detail.*
 import kotlinx.android.synthetic.main.view_toolbar.*
 import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
 class PoiDetailActivity : BaseActivity<PoiDetailPresenter>(), PoiDetailView {
 
     override val layoutResourceId = R.layout.activity_poi_detail
+    val viewModel : PoiDetailViewModel by viewModel { parametersOf(intent.getStringExtra(EXTRA_ID)) }
     override val presenter: PoiDetailPresenter by inject { parametersOf(this, intent.getStringExtra(EXTRA_ID)) }
 
     override fun initViews() {
