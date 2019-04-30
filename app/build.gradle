@@ -47,18 +47,18 @@ dependencies {
     implementation appDependencies.recyclerview
     implementation appDependencies.constraintLayout
     implementation appDependencies.support
-    implementation appDependencies.rxJava
-    implementation appDependencies.rxAndroid
     implementation appDependencies.retrofit
     implementation appDependencies.retrofitConverterGson
-    implementation appDependencies.retrofitAdapterRxJava
     implementation appDependencies.koin
     implementation appDependencies.koinViewModel
     implementation appDependencies.roomRuntime
-    implementation appDependencies.roomRxJava
     implementation appDependencies.lifecycleExtensions
     kapt appDependencies.roomCompiler
     kapt appDependencies.lifecycleCompiler
+
     testImplementation appDependencies.jUnit
     testImplementation appDependencies.mockk
+    testImplementation appDependencies.archCoreTesting
+    androidTestImplementation appDependencies.testRunner
+    androidTestImplementation appDependencies.archCoreTesting
 }

@@ -2,49 +2,46 @@ package com.carles.carleskotlin
 
 import android.arch.persistence.room.Room
 import android.preference.PreferenceManager
-import com.carles.carleskotlin.poi.datasource.PoiCloudDatasource
-import com.carles.carleskotlin.poi.datasource.PoiLocalDatasource
-import com.carles.carleskotlin.poi.datasource.PoiService
-import com.carles.carleskotlin.poi.repository.PoiRepository
-import com.carles.carleskotlin.poi.ui.*
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import com.carles.carleskotlin.common.livedata.LiveDataCallAdapterFactory
+import com.carles.carleskotlin.poi.data.PoiService
+import com.carles.carleskotlin.poi.model.PoiRepository
+import com.carles.carleskotlin.poi.viewmodel.PoiDetailViewModel
+import com.carles.carleskotlin.poi.viewmodel.PoiListViewModel
+import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
-import org.koin.android.viewmodel.ext.koin.viewModel
-import org.koin.dsl.module.module
+import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.dsl.module
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.Executors
 
 private const val BASE_URL = "https://t21services.herokuapp.com"
 
 val appModule = module {
     single { PreferenceManager.getDefaultSharedPreferences(androidContext()) }
-    single("uiScheduler") { AndroidSchedulers.mainThread() }
-    single("processScheduler") { Schedulers.io() }
+    single { AppExecutors(Executors.newSingleThreadExecutor(), Executors.newFixedThreadPool(3), MainThreadExecutor()) }
     single {
-        Room.databaseBuilder(androidContext(), KotlinDatabase::class.java, "kotlin_database").fallbackToDestructiveMigration().build()
+        Room.databaseBuilder(androidContext(), KotlinDatabase::class.java, "kotlin_database")
+                .fallbackToDestructiveMigration()
+                .build()
     }
 
     single {
         Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BASE_URL)
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build()
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(LiveDataCallAdapterFactory())
+                .baseUrl(BASE_URL)
+                .build()
     }
 }
 
 val poiModule = module {
-    single { (get() as KotlinDatabase).PoiDao() }
-    single { PoiLocalDatasource(get(), get()) }
+    single { (get() as KotlinDatabase).poiDao() }
     single { (get() as Retrofit).create(PoiService::class.java) }
-    single { PoiCloudDatasource(get(), get()) }
-    single { PoiRepository(get(), get()) }
-    viewModel { PoiListViewModel(get()) }
-    viewModel { (id: String) -> PoiDetailViewModel(id,get()) }
-    factory { (view: PoiListView) -> PoiListPresenter(view, get("uiScheduler"), get("processScheduler"), get()) }
-    factory { (view: PoiDetailView, id: String) -> PoiDetailPresenter(view, id, get("uiScheduler"), get("processScheduler"), get()) }
+    single { PoiRepository(get(), get(), get(), get()) }
+
+    viewModel { PoiListViewModel(androidApplication(), get()) }
+    viewModel { (id: String) -> PoiDetailViewModel(androidApplication(), id, get()) }
 }
 
 val modules = listOf(appModule, poiModule)

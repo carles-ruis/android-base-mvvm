@@ -2,18 +2,12 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "94fd8779baeb6ce3c75eb6ee64500c69",
+    "identityHash": "3e7d809c320a46db4a7df14fc03ce8d7",
     "entities": [
       {
-        "tableName": "poi",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`roomId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id` TEXT NOT NULL, `title` TEXT, `address` TEXT, `transport` TEXT, `description` TEXT, `email` TEXT, `phone` TEXT, `geocoordinates` TEXT)",
+        "tableName": "poi_detail",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `title` TEXT, `address` TEXT, `transport` TEXT, `description` TEXT, `email` TEXT, `phone` TEXT, `geocoordinates` TEXT, PRIMARY KEY(`id`))",
         "fields": [
-          {
-            "fieldPath": "roomId",
-            "columnName": "roomId",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
           {
             "fieldPath": "id",
             "columnName": "id",
@@ -65,9 +59,41 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "roomId"
+            "id"
           ],
-          "autoGenerate": true
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "poi",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `geocoordinates` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "geocoordinates",
+            "columnName": "geocoordinates",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
         },
         "indices": [],
         "foreignKeys": []
@@ -75,7 +101,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"94fd8779baeb6ce3c75eb6ee64500c69\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"3e7d809c320a46db4a7df14fc03ce8d7\")"
     ]
   }
 }
