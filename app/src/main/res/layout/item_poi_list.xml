@@ -7,5 +7,6 @@
     android:ellipsize="end"
     android:maxLines="1"
     android:padding="16dp"
-    android:textAppearance="@style/Roboto.Subtitle1"
-    tools:text="Parc de la Ciutadella" />
+    android:textAppearance="?textAppearanceSubtitle1"
+    tools:showIn="@layout/activity_poi_list"
+    tools:text="@tools:sample/cities" />

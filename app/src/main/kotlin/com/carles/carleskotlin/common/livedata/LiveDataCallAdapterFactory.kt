@@ -16,7 +16,7 @@
 
 package com.carles.carleskotlin.common.livedata
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import com.carles.carleskotlin.common.data.ApiResponse
 import retrofit2.CallAdapter
 import retrofit2.Retrofit

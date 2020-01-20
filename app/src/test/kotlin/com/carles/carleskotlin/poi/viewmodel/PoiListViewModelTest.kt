@@ -1,7 +1,7 @@
 package com.carles.carleskotlin.poi.viewmodel
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
-import android.arch.lifecycle.Observer
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.Observer
 import com.carles.carleskotlin.common.model.Resource
 import com.carles.carleskotlin.poi.model.Poi
 import com.carles.carleskotlin.poi.model.PoiRepository

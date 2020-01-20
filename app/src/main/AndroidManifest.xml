@@ -26,5 +26,9 @@
         <activity
             android:name=".poi.view.PoiDetailActivity"
             android:label="@string/poidetail_title" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 </manifest>

@@ -1,9 +1,9 @@
 package com.carles.carleskotlin.poi.model
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.Observer
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import android.content.SharedPreferences
 import com.carles.carleskotlin.AppExecutors
 import com.carles.carleskotlin.common.data.ApiResponse

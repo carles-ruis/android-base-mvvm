@@ -1,7 +1,7 @@
 package com.carles.carleskotlin
 
-import android.arch.persistence.room.Room
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager
+import androidx.room.Room
 import com.carles.carleskotlin.common.livedata.LiveDataCallAdapterFactory
 import com.carles.carleskotlin.poi.data.PoiService
 import com.carles.carleskotlin.poi.model.PoiRepository

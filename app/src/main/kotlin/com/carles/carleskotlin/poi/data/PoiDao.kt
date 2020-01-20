@@ -1,11 +1,11 @@
 package com.carles.carleskotlin.poi.data
 
-import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.OnConflictStrategy
-import android.arch.persistence.room.OnConflictStrategy.REPLACE
-import android.arch.persistence.room.Query
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.OnConflictStrategy.REPLACE
+import androidx.room.Query
 import com.carles.carleskotlin.poi.model.Poi
 import com.carles.carleskotlin.poi.model.PoiDetail
 

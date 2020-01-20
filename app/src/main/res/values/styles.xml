@@ -1,24 +1,24 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="colorOnSecondary">@android:color/white</item>
 
+        <item name="android:fontFamily">@font/sanchez</item>
         <item name="android:textViewStyle">@style/defaultTextViewStyle</item>
     </style>
 
-    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="android:background">@color/colorPrimaryDark</item>
-        <item name="colorControlNormal">@android:color/white</item>
-        <item name="android:textColorPrimary">@android:color/white</item>
-    </style>
+    <style name="appToolbarStyle" parent="Widget.MaterialComponents.Toolbar.Primary" />
 
-    <style name="defaultTextViewStyle" parent="@android:style/TextAppearance.Widget.TextView">
-        <item name="android:textAppearance">@style/Roboto.Body1</item>
-        <item name="android:textColor">@color/grey_dark_text</item>
+    <style name="defaultTextViewStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">?textAppearanceBody1</item>
     </style>
 
     <style name="PoiDetailTextStyle" parent="defaultTextViewStyle">

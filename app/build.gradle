@@ -4,16 +4,16 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion androidCompileSdkVersion
 
     defaultConfig {
         applicationId "com.carles.carleskotlin"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode rootProject.ext.versionCode
-        versionName rootProject.ext.versionName
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode appVersionCode
+        versionName appVersionName
         testInstrumentationRunner rootProject.ext.testInstrumentationRunner
+
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
@@ -42,23 +42,27 @@ androidExtensions {
 }
 
 dependencies {
-    implementation appDependencies.kotlin
-    implementation appDependencies.design
-    implementation appDependencies.recyclerview
-    implementation appDependencies.constraintLayout
-    implementation appDependencies.support
-    implementation appDependencies.retrofit
-    implementation appDependencies.retrofitConverterGson
-    implementation appDependencies.koin
-    implementation appDependencies.koinViewModel
-    implementation appDependencies.roomRuntime
-    implementation appDependencies.lifecycleExtensions
-    kapt appDependencies.roomCompiler
-    kapt appDependencies.lifecycleCompiler
+    implementation libraries.kotlin
+    implementation libraries.material
+    implementation libraries.appCompat
+    implementation libraries.recyclerview
+    implementation libraries.constraintLayout
+    implementation libraries.preference
+    implementation libraries.retrofit
+    implementation libraries.retrofitConverterGson
+    implementation libraries.koin
+    implementation libraries.koinViewModel
+    implementation libraries.roomRuntime
+    implementation libraries.lifecycleExtensions
+    kapt libraries.roomCompiler
+    kapt libraries.lifecycleCompiler
 
-    testImplementation appDependencies.jUnit
-    testImplementation appDependencies.mockk
-    testImplementation appDependencies.archCoreTesting
-    androidTestImplementation appDependencies.testRunner
-    androidTestImplementation appDependencies.archCoreTesting
+    testImplementation testLibraries.jUnit
+    testImplementation testLibraries.mockk
+    testImplementation testLibraries.archCoreTesting
+
+    androidTestImplementation testLibraries.testRunner
+    androidTestImplementation testLibraries.testRules
+    androidTestImplementation testLibraries.archCoreTesting
+    androidTestImplementation testLibraries.espresso
 }

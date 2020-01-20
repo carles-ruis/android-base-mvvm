@@ -1,10 +1,10 @@
 package com.carles.carleskotlin.common.model
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MediatorLiveData
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import android.content.SharedPreferences
-import android.support.annotation.MainThread
-import android.support.annotation.WorkerThread
+import androidx.annotation.MainThread
+import androidx.annotation.WorkerThread
 import com.carles.carleskotlin.AppExecutors
 import com.carles.carleskotlin.common.data.ApiEmptyResponse
 import com.carles.carleskotlin.common.data.ApiErrorResponse

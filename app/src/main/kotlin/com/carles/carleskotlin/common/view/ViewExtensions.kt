@@ -1,8 +1,25 @@
 package com.carles.carleskotlin.common.view
 
-import android.support.annotation.LayoutRes
+import android.content.res.Resources
+import androidx.annotation.LayoutRes
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import com.carles.carleskotlin.R
+import com.google.android.material.appbar.MaterialToolbar
 
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int) = LayoutInflater.from(context).inflate(layoutRes, this, false)
+
+
+fun AppCompatActivity.initDefaultToolbar() : MaterialToolbar {
+    val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
+    setSupportActionBar(toolbar)
+    supportActionBar?.apply {
+        setDisplayHomeAsUpEnabled(true)
+        setDisplayShowHomeEnabled(true)
+    }
+    toolbar.setNavigationOnClickListener { onBackPressed() }
+    return toolbar
+}
+
+fun Int.toPx() = this / Resources.getSystem().displayMetrics.density

@@ -1,9 +1,8 @@
 package com.carles.carleskotlin.poi.view
 
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.os.Bundle
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.DividerItemDecoration.VERTICAL
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.carles.carleskotlin.R
 import com.carles.carleskotlin.common.model.Status
 import com.carles.carleskotlin.common.view.BaseActivity
@@ -25,9 +24,13 @@ class PoiListActivity : BaseActivity() {
     }
 
     override fun initViews() {
+        setSupportActionBar(toolbar)
         toolbar.setTitle(R.string.poilist_title)
+        toolbar.setNavigationIcon(R.drawable.ic_close_white_24dp)
+        toolbar.setNavigationOnClickListener { finish() }
+
         adapter = PoiListAdapter { poi -> navigateToPoiDetail(poi.id) }
-        poilist_recyclerview.addItemDecoration(DividerItemDecoration(this, VERTICAL))
+        poilist_recyclerview.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         poilist_recyclerview.adapter = adapter
     }
 

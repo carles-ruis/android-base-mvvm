@@ -1,6 +1,5 @@
 package com.carles.carleskotlin.common.test
 
-import android.os.Build.ID
 import com.carles.carleskotlin.poi.data.PoiDetailResponseDto
 import com.carles.carleskotlin.poi.data.PoiListResponseDto
 import com.carles.carleskotlin.poi.data.PoiResponseDto
@@ -9,7 +8,7 @@ import com.carles.carleskotlin.poi.model.PoiDetail
 
 const val POI_ID = "1"
 
-fun createPoi(id: String) = Poi(id, "the title", "the geocoordinates")
+private fun createPoi(id: String) = Poi(id, "the title", "the geocoordinates")
 
 fun createPoiList() = mutableListOf<Poi>().apply {
     for (id in 1..2) add(createPoi(id.toString()))

@@ -1,7 +1,7 @@
 package com.carles.carleskotlin
 
-import android.arch.persistence.room.Database
-import android.arch.persistence.room.RoomDatabase
+import androidx.room.Database
+import androidx.room.RoomDatabase
 import com.carles.carleskotlin.poi.data.PoiDao
 import com.carles.carleskotlin.poi.model.Poi
 import com.carles.carleskotlin.poi.model.PoiDetail

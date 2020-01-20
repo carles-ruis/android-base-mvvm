@@ -1,9 +1,9 @@
 package com.carles.carleskotlin.poi.data
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
-import android.arch.persistence.room.Room
-import android.support.test.InstrumentationRegistry
-import android.support.test.runner.AndroidJUnit4
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.room.Room
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
 import com.carles.carleskotlin.KotlinDatabase
 import com.carles.carleskotlin.common.test.LiveDataTestUtil.getValue
 import com.carles.carleskotlin.common.test.createPoiDetail
@@ -29,7 +29,7 @@ class PoiDaoTest {
 
     @Before
     fun setup() {
-        database = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getContext(), KotlinDatabase::class.java)
+        database = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().targetContext, KotlinDatabase::class.java)
                 .allowMainThreadQueries()
                 .build();
         dao = database.poiDao().apply {

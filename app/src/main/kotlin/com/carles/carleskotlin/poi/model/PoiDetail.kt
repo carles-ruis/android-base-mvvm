@@ -1,7 +1,7 @@
 package com.carles.carleskotlin.poi.model
 
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.PrimaryKey
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "poi_detail")
@@ -14,4 +14,3 @@ data class PoiDetail(
         var email: String? = null,
         var phone: String? = null,
         var geocoordinates: String? = null)
-// { @PrimaryKey(autoGenerate = true) var roomId: Long = 0 }

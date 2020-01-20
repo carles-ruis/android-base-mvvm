@@ -8,11 +8,11 @@ import java.lang.RuntimeException
 
 class ApiResponseTest {
 
-    val response : Response<String> = mockk()
+    val response : Response<String> = mockk(relaxed = true)
 
     @Test
     fun create_serverErrorResponse() {
-        assert(ApiResponse.create<String>(Throwable()).errorMessage == "unkown error" )
+        assert(ApiResponse.create<String>(Throwable()).errorMessage == "unknown error" )
         assert(ApiResponse.create<String>(RuntimeException("nice exception")).errorMessage == "nice exception")
     }
 

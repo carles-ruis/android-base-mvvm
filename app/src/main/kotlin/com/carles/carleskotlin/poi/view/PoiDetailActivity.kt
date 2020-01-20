@@ -1,6 +1,6 @@
 package com.carles.carleskotlin.poi.view
 
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,10 +9,11 @@ import android.view.View.VISIBLE
 import com.carles.carleskotlin.R
 import com.carles.carleskotlin.common.model.Status
 import com.carles.carleskotlin.common.view.BaseActivity
+import com.carles.carleskotlin.common.view.initDefaultToolbar
 import com.carles.carleskotlin.poi.model.PoiDetail
 import com.carles.carleskotlin.poi.viewmodel.PoiDetailViewModel
 import kotlinx.android.synthetic.main.activity_poi_detail.*
-import kotlinx.android.synthetic.main.view_toolbar.*
+import kotlinx.android.synthetic.main.view_toolbar.toolbar
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
@@ -27,10 +28,7 @@ class PoiDetailActivity : BaseActivity() {
     }
 
     override fun initViews() {
-        setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setDisplayShowCustomEnabled(true)
-        toolbar.setNavigationOnClickListener { onBackPressed() }
+        initDefaultToolbar()
     }
 
     private fun handlePoiDetail(status: Status, poiDetail: PoiDetail?, errorMessage: String?) {
@@ -62,7 +60,7 @@ class PoiDetailActivity : BaseActivity() {
     }
 
     companion object {
-        private val EXTRA_ID = "poi_detail_extra_id"
+        private const val EXTRA_ID = "poi_detail_extra_id"
         fun newIntent(context: Context, id: String) = Intent(context, PoiDetailActivity::class.java).apply { putExtra(EXTRA_ID, id) }
     }
 }

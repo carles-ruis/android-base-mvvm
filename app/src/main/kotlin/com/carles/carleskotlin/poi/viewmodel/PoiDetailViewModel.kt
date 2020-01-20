@@ -1,17 +1,18 @@
 package com.carles.carleskotlin.poi.viewmodel
 
 import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import com.carles.carleskotlin.common.model.Resource
 import com.carles.carleskotlin.poi.model.PoiDetail
 import com.carles.carleskotlin.poi.model.PoiRepository
 
 class PoiDetailViewModel(application: Application, id: String, poiRepository: PoiRepository) : AndroidViewModel (application) {
 
-    val observablePoiDetail : LiveData<Resource<PoiDetail>>
+    private val _observablePoiDetail : LiveData<Resource<PoiDetail>>
+    val observablePoiDetail : LiveData<Resource<PoiDetail>> get() = _observablePoiDetail
 
     init {
-        observablePoiDetail = poiRepository.getPoiDetail(id)
+        _observablePoiDetail = poiRepository.getPoiDetail(id)
     }
 }

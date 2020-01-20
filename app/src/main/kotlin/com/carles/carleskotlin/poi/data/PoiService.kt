@@ -1,6 +1,6 @@
 package com.carles.carleskotlin.poi.data
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import com.carles.carleskotlin.common.data.ApiResponse
 import retrofit2.http.GET
 import retrofit2.http.Path

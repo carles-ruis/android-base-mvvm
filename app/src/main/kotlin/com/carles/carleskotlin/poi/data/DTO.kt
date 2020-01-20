@@ -4,7 +4,7 @@ import com.carles.carleskotlin.poi.model.Poi
 import com.carles.carleskotlin.poi.model.PoiDetail
 import com.google.gson.annotations.SerializedName
 
-data class PoiListResponseDto(@SerializedName("list") var list: List<PoiResponseDto>? = null)
+data class PoiListResponseDto(var list: List<PoiResponseDto>? = null)
 
 data class PoiResponseDto(var id: String, var title: String, var geocoordinates: String)
 
