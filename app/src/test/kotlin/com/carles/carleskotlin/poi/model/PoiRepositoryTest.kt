@@ -7,8 +7,8 @@ import androidx.lifecycle.Observer
 import android.content.SharedPreferences
 import com.carles.carleskotlin.AppExecutors
 import com.carles.carleskotlin.common.data.ApiResponse
-import com.carles.carleskotlin.common.model.Resource
-import com.carles.carleskotlin.common.model.getCacheExpirationTime
+import com.carles.carleskotlin.common.data.Resource
+import com.carles.carleskotlin.common.data.getCacheExpirationTime
 import com.carles.carleskotlin.common.test.POI_ID
 import com.carles.carleskotlin.common.test.createPoiDetail
 import com.carles.carleskotlin.common.test.createPoiDetailResponseDto

@@ -49,7 +49,7 @@
                 style="@style/PoiDetailTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?textAppearanceHeadline5"
+                android:textAppearance="?textAppearanceHeadline6"
                 tools:text="@tools:sample/lorem/random" />
 
             <View

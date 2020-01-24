@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package com.carles.carleskotlin.common.livedata
+package com.carles.carleskotlin.common.data
 
 import androidx.lifecycle.LiveData
-import com.carles.carleskotlin.common.data.ApiResponse
 import retrofit2.Call
 import retrofit2.CallAdapter
 import retrofit2.Callback

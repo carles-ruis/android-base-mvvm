@@ -1,7 +1,7 @@
 package com.carles.carleskotlin.poi.viewmodel
 
 import com.carles.carleskotlin.common.test.POI_ID
-import com.carles.carleskotlin.poi.model.PoiRepository
+import com.carles.carleskotlin.poi.data.PoiRepository
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.Before

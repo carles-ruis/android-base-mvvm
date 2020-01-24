@@ -1,4 +1,4 @@
-package com.carles.carleskotlin.common.livedata
+package com.carles.carleskotlin.common.viewmodel
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
@@ -54,6 +54,6 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
     }
 
     companion object {
-        private val TAG = "SingleLiveEvent"
+        private const val TAG = "SingleLiveEvent"
     }
 }

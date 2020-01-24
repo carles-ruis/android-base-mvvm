@@ -10,6 +10,12 @@ import com.google.android.material.appbar.MaterialToolbar
 
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int) = LayoutInflater.from(context).inflate(layoutRes, this, false)
 
+inline fun AppCompatActivity.consume(f: () -> Unit): Boolean {
+    f()
+    return true
+}
+
+fun AppCompatActivity.getStrings(ids:List<Int>) = ids.map { getString(it) }.toTypedArray()
 
 fun AppCompatActivity.initDefaultToolbar() : MaterialToolbar {
     val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)

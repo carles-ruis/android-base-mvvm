@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import com.carles.carleskotlin.R
-import com.carles.carleskotlin.common.model.Status
+import com.carles.carleskotlin.common.data.Status
 import com.carles.carleskotlin.common.view.BaseActivity
 import com.carles.carleskotlin.common.view.initDefaultToolbar
 import com.carles.carleskotlin.poi.model.PoiDetail
@@ -20,7 +20,7 @@ import org.koin.core.parameter.parametersOf
 class PoiDetailActivity : BaseActivity() {
 
     override val layoutResourceId = R.layout.activity_poi_detail
-    val viewModel by viewModel<PoiDetailViewModel> { parametersOf(intent.getStringExtra(EXTRA_ID)) }
+    private val viewModel by viewModel<PoiDetailViewModel> { parametersOf(intent.getStringExtra(EXTRA_ID)) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

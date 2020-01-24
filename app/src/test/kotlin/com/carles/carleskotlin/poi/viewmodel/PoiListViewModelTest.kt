@@ -2,9 +2,9 @@ package com.carles.carleskotlin.poi.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.carles.carleskotlin.common.model.Resource
+import com.carles.carleskotlin.common.data.Resource
 import com.carles.carleskotlin.poi.model.Poi
-import com.carles.carleskotlin.poi.model.PoiRepository
+import com.carles.carleskotlin.poi.data.PoiRepository
 import io.mockk.clearMocks
 import io.mockk.mockk
 import io.mockk.verify

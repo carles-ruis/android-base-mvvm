@@ -1,4 +1,4 @@
-package com.carles.carleskotlin.common.model
+package com.carles.carleskotlin.common.data
 
 enum class Status { SUCCESS, ERROR, LOADING }
 

@@ -1,15 +1,10 @@
-package com.carles.carleskotlin.common.model
+package com.carles.carleskotlin.common.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import android.content.SharedPreferences
 import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
 import com.carles.carleskotlin.AppExecutors
-import com.carles.carleskotlin.common.data.ApiEmptyResponse
-import com.carles.carleskotlin.common.data.ApiErrorResponse
-import com.carles.carleskotlin.common.data.ApiResponse
-import com.carles.carleskotlin.common.data.ApiSuccessResponse
 
 /**
  * A generic class that can provide a resource backed by both the sqlite database and the network.

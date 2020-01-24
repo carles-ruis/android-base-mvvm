@@ -2,6 +2,9 @@ package com.carles.carleskotlin.common.model
 
 import android.content.SharedPreferences
 import com.carles.carleskotlin.R
+import com.carles.carleskotlin.common.data.getCacheExpirationTime
+import com.carles.carleskotlin.common.data.getMessageId
+import com.carles.carleskotlin.common.data.setCacheExpirationTime
 import io.mockk.*
 import org.junit.Assert.assertEquals
 import org.junit.Test

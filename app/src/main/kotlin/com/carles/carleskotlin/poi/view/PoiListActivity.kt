@@ -4,7 +4,7 @@ import androidx.lifecycle.Observer
 import android.os.Bundle
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.carles.carleskotlin.R
-import com.carles.carleskotlin.common.model.Status
+import com.carles.carleskotlin.common.data.Status
 import com.carles.carleskotlin.common.view.BaseActivity
 import com.carles.carleskotlin.poi.model.Poi
 import com.carles.carleskotlin.poi.viewmodel.PoiListViewModel
@@ -15,7 +15,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class PoiListActivity : BaseActivity() {
 
     override val layoutResourceId = R.layout.activity_poi_list
-    val viewModel by viewModel<PoiListViewModel>()
+    private val viewModel by viewModel<PoiListViewModel>()
     private lateinit var adapter: PoiListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
