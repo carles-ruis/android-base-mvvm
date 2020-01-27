@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.carles.carleskotlin.R
 import com.carles.carleskotlin.common.view.inflate
-import com.carles.carleskotlin.poi.model.Poi
+import com.carles.carleskotlin.poi.domain.Poi
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_poi_list.*
 
@@ -31,7 +31,7 @@ class PoiListAdapter(private val onPoiClicked: (Poi) -> Unit) : RecyclerView.Ada
             containerView.setOnClickListener { onPoiClicked(items.get(adapterPosition)) }
         }
 
-        fun onBindView(item:Poi) {
+        fun onBindView(item: Poi) {
             poilist_item_title_textview.text = item.title
         }
     }

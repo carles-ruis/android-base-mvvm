@@ -1,7 +1,7 @@
-package com.carles.carleskotlin.poi.data
+package com.carles.carleskotlin.poi.model
 
-import com.carles.carleskotlin.poi.model.Poi
-import com.carles.carleskotlin.poi.model.PoiDetail
+import com.carles.carleskotlin.poi.domain.Poi
+import com.carles.carleskotlin.poi.domain.PoiDetail
 import com.google.gson.annotations.SerializedName
 
 data class PoiListResponseDto(var list: List<PoiResponseDto>? = null)

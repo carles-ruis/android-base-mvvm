@@ -2,9 +2,9 @@ package com.carles.carleskotlin
 
 import androidx.preference.PreferenceManager
 import androidx.room.Room
-import com.carles.carleskotlin.common.data.LiveDataCallAdapterFactory
-import com.carles.carleskotlin.poi.data.PoiService
-import com.carles.carleskotlin.poi.data.PoiRepository
+import com.carles.carleskotlin.common.model.LiveDataCallAdapterFactory
+import com.carles.carleskotlin.poi.model.PoiService
+import com.carles.carleskotlin.poi.model.PoiRepository
 import com.carles.carleskotlin.poi.viewmodel.PoiDetailViewModel
 import com.carles.carleskotlin.poi.viewmodel.PoiListViewModel
 import org.koin.android.ext.koin.androidApplication

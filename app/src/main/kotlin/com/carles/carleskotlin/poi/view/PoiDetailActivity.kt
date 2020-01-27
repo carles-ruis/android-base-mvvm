@@ -7,10 +7,10 @@ import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import com.carles.carleskotlin.R
-import com.carles.carleskotlin.common.data.Status
+import com.carles.carleskotlin.common.viewmodel.Status
 import com.carles.carleskotlin.common.view.BaseActivity
 import com.carles.carleskotlin.common.view.initDefaultToolbar
-import com.carles.carleskotlin.poi.model.PoiDetail
+import com.carles.carleskotlin.poi.domain.PoiDetail
 import com.carles.carleskotlin.poi.viewmodel.PoiDetailViewModel
 import kotlinx.android.synthetic.main.activity_poi_detail.*
 import kotlinx.android.synthetic.main.view_toolbar.toolbar

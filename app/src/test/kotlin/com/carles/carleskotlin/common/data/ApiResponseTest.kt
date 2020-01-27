@@ -1,5 +1,9 @@
 package com.carles.carleskotlin.common.data
 
+import com.carles.carleskotlin.common.model.ApiEmptyResponse
+import com.carles.carleskotlin.common.model.ApiErrorResponse
+import com.carles.carleskotlin.common.model.ApiResponse
+import com.carles.carleskotlin.common.model.ApiSuccessResponse
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.Test

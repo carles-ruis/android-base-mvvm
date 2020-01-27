@@ -1,4 +1,4 @@
-package com.carles.carleskotlin.poi.model
+package com.carles.carleskotlin.poi.domain
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

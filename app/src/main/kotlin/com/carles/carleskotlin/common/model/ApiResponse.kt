@@ -1,4 +1,4 @@
-package com.carles.carleskotlin.common.data
+package com.carles.carleskotlin.common.model
 
 import androidx.lifecycle.LiveData
 import retrofit2.CallAdapter
@@ -15,7 +15,8 @@ import java.lang.reflect.Type
 sealed class ApiResponse<in T> {
 
     companion object {
-        fun <T> create(error: Throwable) = ApiErrorResponse<T>(error.message ?: "unknown error")
+        fun <T> create(error: Throwable) = ApiErrorResponse<T>(error.message
+                ?: "unknown error")
 
         fun <T> create(response: Response<T>) = if (response.isSuccessful) {
             if (response.body() == null || response.code() == 204) ApiEmptyResponse<T>() else ApiSuccessResponse(response.body())

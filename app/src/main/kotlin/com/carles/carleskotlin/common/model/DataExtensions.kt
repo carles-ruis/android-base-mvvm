@@ -1,4 +1,4 @@
-package com.carles.carleskotlin.common.data
+package com.carles.carleskotlin.common.model
 
 import android.content.SharedPreferences
 import com.carles.carleskotlin.R

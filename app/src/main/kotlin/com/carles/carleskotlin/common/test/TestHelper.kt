@@ -1,10 +1,10 @@
 package com.carles.carleskotlin.common.test
 
-import com.carles.carleskotlin.poi.data.PoiDetailResponseDto
-import com.carles.carleskotlin.poi.data.PoiListResponseDto
-import com.carles.carleskotlin.poi.data.PoiResponseDto
-import com.carles.carleskotlin.poi.model.Poi
-import com.carles.carleskotlin.poi.model.PoiDetail
+import com.carles.carleskotlin.poi.model.PoiDetailResponseDto
+import com.carles.carleskotlin.poi.model.PoiListResponseDto
+import com.carles.carleskotlin.poi.model.PoiResponseDto
+import com.carles.carleskotlin.poi.domain.Poi
+import com.carles.carleskotlin.poi.domain.PoiDetail
 
 const val POI_ID = "1"
 

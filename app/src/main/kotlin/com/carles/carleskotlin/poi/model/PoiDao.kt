@@ -1,4 +1,4 @@
-package com.carles.carleskotlin.poi.data
+package com.carles.carleskotlin.poi.model
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -6,8 +6,8 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
-import com.carles.carleskotlin.poi.model.Poi
-import com.carles.carleskotlin.poi.model.PoiDetail
+import com.carles.carleskotlin.poi.domain.Poi
+import com.carles.carleskotlin.poi.domain.PoiDetail
 
 @Dao
 interface PoiDao {

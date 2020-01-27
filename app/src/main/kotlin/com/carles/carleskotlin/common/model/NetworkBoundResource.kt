@@ -1,10 +1,11 @@
-package com.carles.carleskotlin.common.data
+package com.carles.carleskotlin.common.model
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
 import com.carles.carleskotlin.AppExecutors
+import com.carles.carleskotlin.common.viewmodel.Resource
 
 /**
  * A generic class that can provide a resource backed by both the sqlite database and the network.

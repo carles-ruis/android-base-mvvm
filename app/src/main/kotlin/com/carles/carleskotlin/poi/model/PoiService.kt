@@ -1,7 +1,7 @@
-package com.carles.carleskotlin.poi.data
+package com.carles.carleskotlin.poi.model
 
 import androidx.lifecycle.LiveData
-import com.carles.carleskotlin.common.data.ApiResponse
+import com.carles.carleskotlin.common.model.ApiResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 

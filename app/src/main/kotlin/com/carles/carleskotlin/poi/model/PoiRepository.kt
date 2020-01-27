@@ -1,11 +1,15 @@
-package com.carles.carleskotlin.poi.data
+package com.carles.carleskotlin.poi.model
 
 import androidx.lifecycle.LiveData
 import android.content.SharedPreferences
 import com.carles.carleskotlin.AppExecutors
-import com.carles.carleskotlin.common.data.*
-import com.carles.carleskotlin.poi.model.Poi
-import com.carles.carleskotlin.poi.model.PoiDetail
+import com.carles.carleskotlin.common.model.NetworkBoundResource
+import com.carles.carleskotlin.common.model.cacheId
+import com.carles.carleskotlin.common.model.getCacheExpirationTime
+import com.carles.carleskotlin.common.model.setCacheExpirationTime
+import com.carles.carleskotlin.common.viewmodel.Resource
+import com.carles.carleskotlin.poi.domain.Poi
+import com.carles.carleskotlin.poi.domain.PoiDetail
 
 class PoiRepository(
         private val appExecutors: AppExecutors,

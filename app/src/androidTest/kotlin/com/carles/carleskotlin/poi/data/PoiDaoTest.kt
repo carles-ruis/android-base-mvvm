@@ -8,8 +8,9 @@ import com.carles.carleskotlin.KotlinDatabase
 import com.carles.carleskotlin.common.test.LiveDataTestUtil.getValue
 import com.carles.carleskotlin.common.test.createPoiDetail
 import com.carles.carleskotlin.common.test.createPoiList
-import com.carles.carleskotlin.poi.model.Poi
-import com.carles.carleskotlin.poi.model.PoiDetail
+import com.carles.carleskotlin.poi.domain.Poi
+import com.carles.carleskotlin.poi.domain.PoiDetail
+import com.carles.carleskotlin.poi.model.PoiDao
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertTrue
 import org.junit.After

@@ -3,9 +3,9 @@ package com.carles.carleskotlin.poi.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.carles.carleskotlin.common.data.Resource
-import com.carles.carleskotlin.poi.model.PoiDetail
-import com.carles.carleskotlin.poi.data.PoiRepository
+import com.carles.carleskotlin.common.viewmodel.Resource
+import com.carles.carleskotlin.poi.domain.PoiDetail
+import com.carles.carleskotlin.poi.model.PoiRepository
 
 class PoiDetailViewModel(application: Application, id: String, poiRepository: PoiRepository)
     : AndroidViewModel(application) {

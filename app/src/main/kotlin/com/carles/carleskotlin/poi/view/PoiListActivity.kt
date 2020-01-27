@@ -4,9 +4,9 @@ import androidx.lifecycle.Observer
 import android.os.Bundle
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.carles.carleskotlin.R
-import com.carles.carleskotlin.common.data.Status
+import com.carles.carleskotlin.common.viewmodel.Status
 import com.carles.carleskotlin.common.view.BaseActivity
-import com.carles.carleskotlin.poi.model.Poi
+import com.carles.carleskotlin.poi.domain.Poi
 import com.carles.carleskotlin.poi.viewmodel.PoiListViewModel
 import kotlinx.android.synthetic.main.activity_poi_list.poilist_recyclerview
 import kotlinx.android.synthetic.main.view_toolbar.toolbar

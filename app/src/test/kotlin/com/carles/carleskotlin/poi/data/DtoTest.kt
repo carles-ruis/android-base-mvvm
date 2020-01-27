@@ -4,7 +4,8 @@ import com.carles.carleskotlin.common.test.createEmptyPoiListResponseDto
 import com.carles.carleskotlin.common.test.createPoiDetailResponseDto
 import com.carles.carleskotlin.common.test.createPoiListResponseDto
 import com.carles.carleskotlin.common.test.createPoiResponseDto
-import com.carles.carleskotlin.poi.model.Poi
+import com.carles.carleskotlin.poi.domain.Poi
+import com.carles.carleskotlin.poi.model.toModel
 import junit.framework.Assert.*
 import org.junit.Test
 import java.util.*

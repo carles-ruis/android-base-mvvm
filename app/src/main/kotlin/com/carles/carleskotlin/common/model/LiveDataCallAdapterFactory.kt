@@ -1,4 +1,4 @@
-package com.carles.carleskotlin.common.data
+package com.carles.carleskotlin.common.model
 
 import androidx.lifecycle.LiveData
 import retrofit2.CallAdapter
