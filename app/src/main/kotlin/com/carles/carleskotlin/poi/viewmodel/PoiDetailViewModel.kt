@@ -7,14 +7,14 @@ import com.carles.carleskotlin.common.data.Resource
 import com.carles.carleskotlin.poi.model.PoiDetail
 import com.carles.carleskotlin.poi.data.PoiRepository
 
-class PoiDetailViewModel(application: Application,
-                         private val id: String,
-                         private val poiRepository: PoiRepository)
+class PoiDetailViewModel(application: Application, id: String, poiRepository: PoiRepository)
     : AndroidViewModel(application) {
 
-    private val _observablePoiDetail: LiveData<Resource<PoiDetail>> by lazy {
-        poiRepository.getPoiDetail(id)
-    }
+    private val _observablePoiDetail: LiveData<Resource<PoiDetail>>
     val observablePoiDetail: LiveData<Resource<PoiDetail>> get() = _observablePoiDetail
+
+    init {
+        _observablePoiDetail = poiRepository.getPoiDetail(id)
+    }
 
 }

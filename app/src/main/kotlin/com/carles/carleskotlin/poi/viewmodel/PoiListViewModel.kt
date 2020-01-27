@@ -13,7 +13,7 @@ class PoiListViewModel(application: Application, private val poiRepository: PoiR
 
     private val getPoiListEvent = SingleLiveEvent<Void>()
     private val _observablePoiList: LiveData<Resource<List<Poi>>>
-    val observablePoiList: LiveData<Resource<List<Poi>>> get() = _observablePoiList
+    val observablePoiList get() = _observablePoiList
 
     init {
         _observablePoiList = Transformations.switchMap(getPoiListEvent) { poiRepository.getPoiList() }
@@ -23,5 +23,4 @@ class PoiListViewModel(application: Application, private val poiRepository: PoiR
     fun retry() {
         getPoiListEvent.call()
     }
-
 }
