@@ -4,13 +4,11 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.carles.carleskotlin.KotlinDatabase
+import com.carles.carleskotlin.*
 import com.carles.carleskotlin.LiveDataTestUtil.getValue
 import com.carles.carleskotlin.poi.domain.Poi
 import com.carles.carleskotlin.poi.domain.PoiDetail
 import com.carles.carleskotlin.poi.model.PoiDao
-import com.carles.carleskotlin.poiDetail
-import com.carles.carleskotlin.pois
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertTrue
 import org.junit.After
@@ -25,6 +23,8 @@ class PoiDaoTest {
 
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
+    private val poiList = listOf(Poi("1", "title", "coord"), Poi("2", "title", "coord"))
+    private val poiDetail = PoiDetail(id = "1", title = "the_title", transport = "the_transport", email = "the_email", phone = "the_phone")
     lateinit var database: KotlinDatabase
     lateinit var dao: PoiDao
 
@@ -34,7 +34,7 @@ class PoiDaoTest {
                 .allowMainThreadQueries()
                 .build();
         dao = database.poiDao().apply {
-            insertPois(pois)
+            insertPois(poiList)
             insertPoi(poiDetail)
         }
     }
