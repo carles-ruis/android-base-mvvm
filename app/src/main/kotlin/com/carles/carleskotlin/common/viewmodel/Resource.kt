@@ -1,5 +1,9 @@
 package com.carles.carleskotlin.common.viewmodel
 
+import androidx.lifecycle.LiveData
+
+typealias ResourceLiveData<T> = LiveData<Resource<T>>
+
 enum class Status { SUCCESS, ERROR, LOADING }
 
 class Resource<out T>(val status: Status, val data: T?, val message: String?) {

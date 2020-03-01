@@ -1,19 +1,18 @@
 package com.carles.carleskotlin.poi.model
 
+import android.content.SharedPreferences
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import android.content.SharedPreferences
 import com.carles.carleskotlin.AppExecutors
 import com.carles.carleskotlin.common.model.ApiResponse
-import com.carles.carleskotlin.common.viewmodel.Resource
 import com.carles.carleskotlin.common.model.getCacheExpirationTime
 import com.carles.carleskotlin.common.test.POI_ID
 import com.carles.carleskotlin.common.test.createPoiDetail
 import com.carles.carleskotlin.common.test.createPoiDetailResponseDto
 import com.carles.carleskotlin.common.test.createPoiListResponseDto
-import com.carles.carleskotlin.poi.data.*
+import com.carles.carleskotlin.common.viewmodel.Resource
 import com.carles.carleskotlin.poi.domain.Poi
 import com.carles.carleskotlin.poi.domain.PoiDetail
 import io.mockk.*
@@ -26,6 +25,7 @@ class PoiRepositoryTest {
 
     @get:Rule
     val instantExecutorRule = InstantTaskExecutorRule()
+
     val FUTURE: Long
     val PAST: Long
     val instantExecutor = Executor { it.run() }
@@ -36,7 +36,7 @@ class PoiRepositoryTest {
     init {
         FUTURE = System.currentTimeMillis() + 24L * 60 * 60 * 1000
         PAST = System.currentTimeMillis() - 24L * 60 * 60 * 1000
-        mockkStatic("com.carles.carleskotlin.common.model.ModelExtensionsKt")
+        mockkStatic("com.carles.carleskotlin.common.model.DataExtensionsKt")
         sharedPreferences = mockk(relaxed = true)
     }
 
@@ -58,7 +58,7 @@ class PoiRepositoryTest {
 
         // first : loadFromDb()
         verifyAll { dao.loadPois() }
-        verify(exactly = 0) { service.getPoiList() }
+        verify { service wasNot called }
 
         // get empty data from the local database
         localData.postValue(null)
@@ -84,8 +84,8 @@ class PoiRepositoryTest {
         repository.getPoiDetail(POI_ID).observeForever(observer)
         localData.postValue(null)
 
-        verify { dao.loadPoiById(POI_ID) }
-        verify(exactly = 0) { service.getPoiDetail(POI_ID) }
+        verifyAll { dao.loadPoiById(POI_ID) }
+        verify { service wasNot called }
         verify(exactly = 0) { dao.insertPoi(any()) }
     }
 

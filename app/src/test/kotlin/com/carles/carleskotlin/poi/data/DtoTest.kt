@@ -6,7 +6,8 @@ import com.carles.carleskotlin.common.test.createPoiListResponseDto
 import com.carles.carleskotlin.common.test.createPoiResponseDto
 import com.carles.carleskotlin.poi.domain.Poi
 import com.carles.carleskotlin.poi.model.toModel
-import junit.framework.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.util.*
 
@@ -31,8 +32,7 @@ class DtoTest {
         val dto = createPoiDetailResponseDto()
         assertTrue(with(dto.toModel()) { id == dto.id && transport == dto.transport && email == dto.email && phone == dto.phone })
 
-        dto.transport = ""; assertNull(dto.toModel().transport)
-        dto.email = "null"; assertNull(dto.toModel().email)
-        dto.phone = "undefined"; assertNull(dto.toModel().phone)
+        val dtoWithNulls = dto.copy(transport = "", email = "null", phone = "undefined")
+        assertTrue(with(dtoWithNulls.toModel()) { transport == null && email == null && phone == null })
     }
 }
