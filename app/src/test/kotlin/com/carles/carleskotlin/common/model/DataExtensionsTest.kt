@@ -6,10 +6,11 @@ import com.carles.carleskotlin.common.model.getCacheExpirationTime
 import com.carles.carleskotlin.common.model.getMessageId
 import com.carles.carleskotlin.common.model.setCacheExpirationTime
 import io.mockk.*
+import org.assertj.core.api.Assertions
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class ModelExtensionsTest {
+class DataExtensionsTest {
 
     @Test
     fun sharedPreferences_shouldGetCacheExpirationTime() {
@@ -29,6 +30,6 @@ class ModelExtensionsTest {
 
     @Test
     fun throwable_shouldGetMessageId() {
-        assertEquals(R.string.error_server_response, Throwable().getMessageId())
+        Assertions.assertThat(Throwable().getMessageId()).isEqualTo(R.string.error_server_response)
     }
 }

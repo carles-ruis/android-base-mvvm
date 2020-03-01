@@ -1,4 +1,4 @@
-package com.carles.carleskotlin.common.test
+package com.carles.carleskotlin
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer

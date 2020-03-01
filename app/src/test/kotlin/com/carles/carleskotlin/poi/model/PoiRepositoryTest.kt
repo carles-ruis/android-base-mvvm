@@ -5,13 +5,9 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.carles.carleskotlin.AppExecutors
+import com.carles.carleskotlin.*
 import com.carles.carleskotlin.common.model.ApiResponse
 import com.carles.carleskotlin.common.model.getCacheExpirationTime
-import com.carles.carleskotlin.common.test.POI_ID
-import com.carles.carleskotlin.common.test.createPoiDetail
-import com.carles.carleskotlin.common.test.createPoiDetailResponseDto
-import com.carles.carleskotlin.common.test.createPoiListResponseDto
 import com.carles.carleskotlin.common.viewmodel.Resource
 import com.carles.carleskotlin.poi.domain.Poi
 import com.carles.carleskotlin.poi.domain.PoiDetail
@@ -43,12 +39,11 @@ class PoiRepositoryTest {
     val repository = PoiRepository(AppExecutors(instantExecutor, instantExecutor, instantExecutor), sharedPreferences, dao, service)
 
     @Test
-    fun getPoiList_shouldFetchFromNetwork() {
-        val dto = createPoiListResponseDto()
-        val model = dto.toModel()
+    fun getPoiList_network() {
+        val model = poiListResponseDto.toModel()
         val localData = MutableLiveData<List<Poi>>()
         val networkData = MutableLiveData<ApiResponse<PoiListResponseDto>>().apply {
-            value = ApiResponse.create(Response.success(dto))
+            value = ApiResponse.create(Response.success(poiListResponseDto))
         } as LiveData<ApiResponse<PoiListResponseDto>>
         every { dao.loadPois() } returns localData
         every { service.getPoiList() } returns networkData
@@ -66,17 +61,15 @@ class PoiRepositoryTest {
         // verify that fetchFromNetwork() and saveCallResult() were called
         verifyAll {
             service.getPoiList()
-            with(dao) {
-                loadPois()
-                insertPois(model)
-                deletePois()
-            }
+            dao.loadPois()
+            dao.insertPois(model)
+            dao.deletePois()
         }
     }
 
     @Test
     fun getPoiDetail_dataNotExpiredShouldloadFromDb() {
-        val localData = MutableLiveData<PoiDetail>().apply { value = createPoiDetail() }
+        val localData = MutableLiveData<PoiDetail>().apply { value = poiDetail }
         every { dao.loadPoiById(POI_ID) } returns localData
         every { sharedPreferences.getCacheExpirationTime(any(), any()) } returns FUTURE
 
@@ -93,7 +86,7 @@ class PoiRepositoryTest {
     fun getPoiDetail_dataNullShouldFetchFromNetwork() {
         val localData = MutableLiveData<PoiDetail>().apply { value = null }
         val networkData = MutableLiveData<ApiResponse<PoiDetailResponseDto>>().apply {
-            value = ApiResponse.create(Response.success(createPoiDetailResponseDto()))
+            value = ApiResponse.create(Response.success(poiDetailResponseDto))
         }
 
         every { dao.loadPoiById(POI_ID) } returns localData
@@ -113,9 +106,9 @@ class PoiRepositoryTest {
 
     @Test
     fun getPoiDetail_dataExpiredShouldFetchFromNetwork() {
-        val localData = MutableLiveData<PoiDetail>().apply { value = createPoiDetail() }
+        val localData = MutableLiveData<PoiDetail>().apply { value = poiDetail }
         val networkData = MutableLiveData<ApiResponse<PoiDetailResponseDto>>().apply {
-            value = ApiResponse.create(Response.success(createPoiDetailResponseDto()))
+            value = ApiResponse.create(Response.success(poiDetailResponseDto))
         }
         every { dao.loadPoiById(POI_ID) } returns localData
         every { service.getPoiDetail(POI_ID) } returns networkData

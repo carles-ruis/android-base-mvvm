@@ -5,12 +5,12 @@ import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.carles.carleskotlin.KotlinDatabase
-import com.carles.carleskotlin.common.test.LiveDataTestUtil.getValue
-import com.carles.carleskotlin.common.test.createPoiDetail
-import com.carles.carleskotlin.common.test.createPoiList
+import com.carles.carleskotlin.LiveDataTestUtil.getValue
 import com.carles.carleskotlin.poi.domain.Poi
 import com.carles.carleskotlin.poi.domain.PoiDetail
 import com.carles.carleskotlin.poi.model.PoiDao
+import com.carles.carleskotlin.poiDetail
+import com.carles.carleskotlin.pois
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertTrue
 import org.junit.After
@@ -34,8 +34,8 @@ class PoiDaoTest {
                 .allowMainThreadQueries()
                 .build();
         dao = database.poiDao().apply {
-            insertPois(createPoiList())
-            insertPoi(createPoiDetail())
+            insertPois(pois)
+            insertPoi(poiDetail)
         }
     }
 

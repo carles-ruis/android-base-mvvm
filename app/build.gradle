@@ -60,6 +60,7 @@ dependencies {
     testImplementation testLibraries.jUnit
     testImplementation testLibraries.mockk
     testImplementation testLibraries.archCoreTesting
+    testImplementation testLibraries.assertj
 
     androidTestImplementation testLibraries.testRunner
     androidTestImplementation testLibraries.testRules
